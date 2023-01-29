@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
+  vite: {
+  },
   runtimeConfig: {
     // The private keys which are only available server-side
     // apiSecret: '123',
