@@ -1,14 +1,16 @@
 
 export default async function (codePrompt: string) {
+  const config = useRuntimeConfig()
+  console.log('generate-code.ts (4)', config)
   try {
     const response = await fetch("https://api.openai.com/v1/completions", {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${config.public.OPENAI_API_KEY}`,
       },
       method: "POST",
       body: JSON.stringify({
-        model: "code-davinci-002",
+        model: "text-davinci-003",
         prompt: codePrompt,
         temperature: 0.6,
         n: 1,

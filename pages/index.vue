@@ -2,13 +2,18 @@
 import generateImage from '~~/utils/generate-code';
 
 const content = ref('')
+const answer = ref('')
 
 async function generate() {
-  content.value = await generateImage('Write a function in javascript that calculates fibonacci')
+  answer.value = await generateImage(content.value)
+}
+
+const changeValue = (e: any) => {
+  content.value = e.target.value
 }
 </script>
 
 <template>
- <h1 @click="generate">Question: </h1>
- <textarea style="height: 200px">{{ content }}</textarea>
+ <textarea style="height: 200px" @blur="generate" @input="changeValue"></textarea>
+ <span>answer: {{ answer }}</span>
 </template>

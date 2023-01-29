@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     // apiSecret: '123',
     // Keys within public are also exposed client-side
     public: {
-      apiBase: '/api'
-    }
+      apiBase: '/api',
+      OPENAI_API_KEY: process.env.OPENAI_API_KEY
+    },
   },
 })
